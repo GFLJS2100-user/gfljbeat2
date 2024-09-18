@@ -7,9 +7,9 @@
 }
 
 html {
-	color-scheme: cake;
+	color-scheme: dark;
 	background-color: #000;
-	color: #ffffff;
+	color: #c5c8c6;
 	font: var(--font-size) sans-serif;
 }
 
@@ -150,7 +150,7 @@ footer {
 /* ==[ Editor ] =========================================================================================== */
 
 button[name="close"] {
-	color: #abcdef;
+	color: #abb2bf;
 }
 
 .container-expanded > #editor-container {
