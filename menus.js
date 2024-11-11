@@ -301,7 +301,7 @@ globalThis.MAT = new class { //Menus and transformations
 		let temp4 = btoa(temp3.toString(36)).replaceAll('=', '');
 		let finalSeed = (temp2 + "-" + temp4)
 		if (forTitle) {
-			this.tabName.innerText = "CHASYXX-" + finalSeed
+			this.tabName.innerText = "GFLJS2100-" + finalSeed
 		}
 		return finalSeed
 	}
@@ -389,7 +389,7 @@ globalThis.favorites = new class {
 		}
 	}
 
-	make(name, code) {
+	make(name, code, sampleRate, mode) {
 		const finalName = this.cook(name);
 		const finalCode = this.cook(code);
 		document.cookie = `${finalName}=${finalCode}; expires=Fri, 01 Jan 2038 06:00:00 GMT` // change this in 2037
@@ -406,6 +406,8 @@ globalThis.favorites = new class {
 		while ((match = cookieRegex.exec(cookies)) !== null) {
 			const songName = match[1];
 			const code = match[2];
+			const sampleRate = match[3];
+			const mode = match[4];
 			if (songName == "_ga" || code == "deleted-favorite") { continue };
 			console.log(`Cookie: ${songName} = ${code}`);
 			this.contents.innerHTML += this.generateEntry(songName, code);
@@ -488,4 +490,3 @@ let apfo = async () => {
 	}
 }
 setTimeout(apfo, 1000)
-
