@@ -54,7 +54,7 @@ globalThis.bytebeat = new class {
 		this.isRecording = false;
 		this.playbackSpeed = 1;
 		this.settings = { drawMode: 'Points', drawScale: 5, isSeconds: false, volume: .5 };
-		this.songData = { mode: 'Bytebeat', sampleRate: 8000 };
+		this.songData = { mode: 'Bytebeat', sampleRate: 44100 };
 
 		this.init();
 	}
@@ -438,7 +438,7 @@ globalThis.bytebeat = new class {
 		// Below challenges trivial clones. All you have to do is remove the if,
 		// and it will work correctly.
 		// ONLY do this if you know what you're doing!
-		if (!window.location.hostname.includes`chasyxx`) { // You may also change this line to your hostname. (instead of `chasyxx`, use `t-8492` for example)
+		if (!window.location.hostname.includes`gfljs2100-user`) { // You may also change this line to your hostname. (instead of `chasyxx`, use `t-8492` for example)
 			if (/127.\d+.\d+.\d+|\[::1\]/.test(window.location.hostname)) {
 				console.warn("The trivial clone check was tripped. See line 438 for details.")
 				document.body.innerHTML+="<p align=\"center\">The trivial clone check was tripped. See line 438 for details.</p>"
@@ -456,7 +456,7 @@ globalThis.bytebeat = new class {
 				return;
 			}
 		}
-		// Above challenges trivial clones.
+		// Above challenges trivial clones.		
 		await this.initAudioContext();
 		if (document.readyState === 'loading') {
 			document.addEventListener('DOMContentLoaded', () => this.initAfterDom());
@@ -485,8 +485,8 @@ globalThis.bytebeat = new class {
 		audioRecorder.addEventListener('dataavailable', e => this.audioRecordChunks.push(e.data));
 		audioRecorder.addEventListener('stop', e => {
 			let file, type;
-			const types = ['audio/webm', 'audio/ogg'];
-			const files = ['track.webm', 'track.ogg'];
+			const types = ['audio/mpeg', 'audio/ogg'];
+			const files = ['track.mp3', 'track.ogg'];
 			while ((file = files.pop()) && !MediaRecorder.isTypeSupported(type = types.pop())) {
 				if (types.length === 0) {
 					console.error('Recording is not supported in this browser!');
@@ -559,14 +559,17 @@ globalThis.bytebeat = new class {
 			this.editorElem.value = code;
 		}
 		this.setSampleRate(this.controlSampleRate.value = +sampleRate || 8000, false);
-		const data = { mode, sampleRatio: this.songData.sampleRate / this.audioCtx.sampleRate };
+		const data = {
+			mode,
+			sampleRate: this.songData.sampleRate,
+			sampleRatio: this.songData.sampleRate / this.audioCtx.sampleRate
+		};
 		if (isPlay) {
 			this.playbackToggle(true, false);
 			data.resetTime = true;
 			data.isPlaying = isPlay;
-		} else {
-			data.setFunction = code;
 		}
+		data.setFunction = code;
 		this.sendData(data);
 		await new Promise(resolve => {
 			const LOOK = (x) => {
@@ -874,6 +877,7 @@ globalThis.bytebeat = new class {
 		switch (sampleRate) {
 			case 8000:
 			case 11025:
+			case 15500:
 			case 16000:
 			case 22050:
 			case 32000:
@@ -887,7 +891,10 @@ globalThis.bytebeat = new class {
 		this.toggleTimeCursor();
 		if (isSendData) {
 			this.updateUrl();
-			this.sendData({ sampleRatio: this.songData.sampleRate / this.audioCtx.sampleRate });
+			this.sendData({
+				sampleRate: this.songData.sampleRate,
+				sampleRatio: this.songData.sampleRate / this.audioCtx.sampleRate
+			});
 		}
 	}
 	setSampleDivisor(x) {
