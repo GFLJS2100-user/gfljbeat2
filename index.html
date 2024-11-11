@@ -4,26 +4,33 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Bytebeat player with a collection of many formulas from around the internet; Chasyxx fork">
-	<title id="TAB-NAME">CHASYXX Bytebeat Player</title>
-	<link rel="canonical" href="https://chasyxx.github.io/EnBeat_NEW"/>
-	<link rel="shortcut icon" href="./favicon.png">
+	<meta name="description" content="">
+	<title id="TAB-NAME">Bytebeat Composer</title>
+  	<link rel="canonical" href="https://gfljs2100-user.github.io/gfljbeat2/" />
+	<link rel="shortcut icon" href="./IMG_8941.ico">
 	<link rel="stylesheet" type="text/css" href="bytebeat.css?version=2023022000">
 	<link rel="modulepreload" href="./scripts/audioProcessor.mjs?version=2023022000">
 	<script type="module" async src="./scripts/bytebeat.mjs?version=2023022000"></script>
 	<script type="module" async src="menus.js"></script>
 </head>
 <body>
-	<!--p align="center" style="color: #FFFF00; font-size: 12px">This is not the dollChan player! That's <a href="https://dollchan.net/bytebeat/">this one.</a><br />Still, credit to SthephanShi for making the original site!</p>
+	<!--p align="center" style="color: #FFFF00; font-size: 12px">This is not the dollChan player! That's <a href="https://dollchan.net/bytebeat/">this one.</a><br>Still, credit to SthephanShi for making the original site!</p>
 	<p id="splash" align="center" style="color: #00FFFF; font-size: 12px">MissingNo, but it's <i>true!</i></p-->
 		<div id="log"></div>
 	<main id="content">
 		<section id="container-fixed">
 			<div id="editor-container">
-				<textarea  id="editor-default" spellcheck="false">a=&quot;CHASYXX Bytebeat composer&quot;,aa=a.charCodeAt((((t&amp;t&gt;&gt;14)&amp;7)+t*(t&gt;&gt;11&amp;7^t&gt;&gt;10&amp;3))%(a.length)),
-b=&quot;by Chase T&quot;,bb=b.charCodeAt((((t&amp;t&gt;&gt;17)&amp;7)+t*(t&gt;&gt;12&amp;7^t&gt;&gt;10&amp;7))%(b.length)),
-c=&quot;Fork of StephanShi&apos;s player&quot;	,cc=c.charCodeAt(((t&amp;t&gt;&gt;20)+((t*1.07)&gt;&gt;2)*(t&gt;&gt;13&amp;7^t&gt;&gt;10&amp;15))%(c.length)),
-((aa+bb+cc)/2)|t&gt;&gt;4</textarea>
+				<textarea  id="editor-default" spellcheck="false">//GFLJBEAT2
+//Fork of emelchenko aka T-8492's bytebeat composer
+//Forked by GFLJS2100-user
+songs=[sin((t&t>>7)*PI/128)*127+127|cos((t)*PI/128)*127+127,400*cbrt(t%16384),sin(t/16384*(t&t>>13)*PI/128)*127+127,sin(t/162)*127+127,random()*255&-t>>6,sin(t/162)*30],
+
+songs[0]%256/5+
+songs[1]%256/5+
+songs[2]%256/5+
+songs[3]%256/5+
+songs[4]%256/5+
+songs[5]%256/5</textarea>
 			</div>
 
 			<dialog id="code-is-already-minibaked">
@@ -37,7 +44,6 @@ c=&quot;Fork of StephanShi&apos;s player&quot;	,cc=c.charCodeAt(((t&amp;t&gt;&gt
 				<p>Are you sure you want to remove this favorite?</p>
 				<div style="display: flex; justify-content: center;"><button id="dialog-yes">Yes</button><button id="dialog-no">No</button></div>
 			</dialog>
-
 			<div class="controls" id="controls0">
 				<div class="controls-group controls-grow">
 					<button id="control-counter-units" class="control-button" title="Time units">t</button>
@@ -90,7 +96,7 @@ c=&quot;Fork of StephanShi&apos;s player&quot;	,cc=c.charCodeAt(((t&amp;t&gt;&gt
 					<button id="control-expand" class="control-button" title="Expand the code editor">
 						<svg><use xlink:href="#symbol-expand"></use></svg>
 					</button>
-					<span id="control-codesize" title="Code size (Link size) in characters"></span>
+					<span id="control-codesize" title="Code size in characters"></span>
 				</div>
 				<div class="controls-group controls-grow">
 					<input id="control-volume" type="range" min="0" max="1" value=".5" step="any" title="Volume">
@@ -107,17 +113,51 @@ c=&quot;Fork of StephanShi&apos;s player&quot;	,cc=c.charCodeAt(((t&amp;t&gt;&gt
 					<option class="song-options" value="Bytebeat" selected>Bytebeat</option>
 					<option class="song-options"  value="Signed Bytebeat">Signed Bytebeat</option>
 					<option class="song-options"  value="Floatbeat">Floatbeat</option>
+					<option class="song-options"  value="Funcbeat">Funcbeat</option>
+					<option class="song-options"  value="-2Func2beat">-2Func+2beat</option>
 					<option class="song-options" value="Bitbeat" title="&quot;&amp;1&quot; view of code. Exotic mode.">Bitbeat</option>
 					<option class="song-options"  value="2048" title="Wraps around at 2048 instead of 256. Exotic mode.">2048</option>
+					<option class="song-options"  value="4080" title="Wraps around at 4080 instead of 256. Exotic mode.">4080</option>
+					<option class="song-options"  value="8160" title="Wraps around at 8160 instead of 256. Exotic mode.">8160</option>
 					<option class="song-options"  value="logmode" title="&quot;log2()*32&quot; view of code. Exotic mode.">Logmode</option>
 					<option class="song-options"  value="logHack" title="Logmode, but suppourts negative numbers.">LogHack</option>
 					<option class="song-options"  value="logHack2" title="LogHack, but 128 added. Multiplies by 16 instead. Especially exotic with numbers from -1 to 1.">LogHack2</option>
+					<option class="song-options"  value="sinmode" title="&quot;sin()*32&quot; view of code. Exotic mode.">Sinmode</option>
+					<option class="song-options"  value="tanmode" title="&quot;tan()*32&quot; view of code. Exotic mode.">Tanmode</option>
+					<option class="song-options"  value="tanmodenew" title="&quot;tan()*32&quot; view of code. Exotic mode. New.">Tanmode (NEW)</option>
+					<option class="song-options"  value="tanhmodenew" title="&quot;tanh()*32&quot; view of code. Exotic mode. New.">Tanhmode (NEW)</option>
+					<option class="song-options"  value="atanmodenew" title="&quot;atan()*32&quot; view of code. Exotic mode. New.">Atanmode (NEW)</option>
+					<option class="song-options"  value="sinmodeold" title="&quot;sin()*32&quot; view of code. Exotic mode. Old.">Sinmode (Old)</option>
+					<option class="song-options"  value="cosmode" title="&quot;cos()*32&quot; view of code. Exotic mode.">Cosmode</option>
+					<option class="song-options"  value="cosmodeold" title="&quot;cos()*32&quot; view of code. Exotic mode. Old.">Cosmode (Old)</option>
+					<option class="song-options"  value="absmode" title="&quot;abs()*32&quot; view of code. Exotic mode.">Absmode</option>
+					<option class="song-options"  value="cbrtmode" title="&quot;cbrt()*32&quot; view of code. Exotic mode.">Cbrtmode</option>
+					<option class="song-options"  value="sinhmode" title="&quot;sinh()*32&quot; view of code. Exotic mode.">Sinhmode</option>
+					<option class="song-options"  value="sinhmodeold" title="&quot;sinh()*32&quot; view of code. Exotic mode. Old.">Sinhmode (Old)</option>
+					<option class="song-options"  value="asinmode" title="&quot;asin()*32&quot; view of code. Exotic mode.">Asinmode</option>
+					<option class="song-options"  value="asinmodeold" title="&quot;asin()*32&quot; view of code. Exotic mode. Old.">Asinmode (Old)</option>
+					<option class="song-options"  value="acosmode" title="&quot;acos()*32&quot; view of code. Exotic mode.">Acosmode</option>
+					<option class="song-options"  value="acosmodeold" title="&quot;acos()*32&quot; view of code. Exotic mode. Old.">Acosmode (Old)</option>
+					<option class="song-options"  value="coshmode" title="&quot;cosh()*32&quot; view of code. Exotic mode.">Coshmode</option>
+					<option class="song-options"  value="coshmodeold" title="&quot;cosh()*32&quot; view of code. Exotic mode. Old.">Coshmode (Old)</option>
+					<option class="song-options"  value="log10mode" title="&quot;log10()*32&quot; view of code. Exotic mode.">Log10mode</option>
+					<option class="song-options"  value="sqrtmode" title="&quot;sqrt()*32&quot; view of code. Exotic mode.">Sqrtmode</option>
+					<option class="song-options"  value="sinfmode" title="&quot;sinf()*32&quot; view of code. Exotic mode.">Sinfmode</option>
+					<option class="song-options"  value="tanfmode" title="&quot;tanf()*32&quot; view of code. Exotic mode.">Tanfmode</option>
+					<option class="song-options"  value="cosfmode" title="&quot;cosf()*32&quot; view of code. Exotic mode.">Cosfmode</option>
+					<option class="song-options"  value="doublebeat">DoubleBeat</option>
+					<option class="song-options"  value="nolimit">No Limit</option>
+					<option class="song-options"  value="floatbeat2insteadof1">Floatbeat but replaced 1 with 2</option>
+					<option class="song-options"  value="127beat">127Beat</option>
+					<option class="song-options"  value="signednolimit">Signed No Limit</option>
+					<option class="song-options" value="Byte&beat>>12" selected>Byte&beat>>12</option>
 				</select>
 				<div class="controls-group controls-grow">
 					<input type="text" id="control-samplerate" title="Set sample rate (in Hz) then press Enter">
 					<select id="control-samplerate-select" class="control-select" title="Sample rate">
 						<option value="8000"  class="song-options">8000Hz</option>
 						<option value="11025" class="song-options">11025Hz</option>
+						<option value="15500" class="song-options">15500Hz (IBNIZ's sample rate)</option>
 						<option value="16000" class="song-options">16000Hz</option>
 						<option value="22050" class="song-options">22025Hz</option>
 						<option value="32000" class="song-options">32000Hz</option>
@@ -147,7 +187,7 @@ c=&quot;Fork of StephanShi&apos;s player&quot;	,cc=c.charCodeAt(((t&amp;t&gt;&gt
 				</button>
 			</div>
 			<div class="controls hidden" id="controls3">
-				<!-- <input type="checkbox" onchange="MAT.switch(this.checked)">Toggle extra library buttons -->
+				<input type="checkbox" onchange="MAT.switch(this.checked)">Toggle extra library buttons
 			</div>
 			<div id="error"></div>
 			<div id="canvas-container" title="Click to play">
@@ -169,34 +209,45 @@ c=&quot;Fork of StephanShi&apos;s player&quot;	,cc=c.charCodeAt(((t&amp;t&gt;&gt
 					They're generally a piece of rhythmic and somewhat melodic music with no score, no instruments, and no real oscillators.
 					It's simply a single-line formula that defines a waveform as a function of time, processed (usually) 8000 times per second, resulting in an audible waveform with a 256-step resolution from silence (0) to full amplitude (256).
 					If you put that formula into a program with a loop that increments time variable (t), you can generate the headerless unsigned 8 bit mono 8kHz audio stream on output, like in this application.
-					Since these directly output a waveform, they have great performance in compiled languages and can often be ran on even the weakest embedded devices.<br />
-					<a href="http://canonical.org/~kragen/bytebeat/" target="_blank">History of bytebeat</a><br />
-					<br />
-					Original blog posts and videos from Viznut:<br />
-					<a href="http://countercomplex.blogspot.com/2011/10/algorithmic-symphonies-from-one-line-of.html" target="_blank">Blog posts #1</a><br />
-					<a href="http://countercomplex.blogspot.com.au/search/label/algorithmic%20music" target="_blank">Blog posts #2</a><br />
-					<a href="https://www.youtube.com/watch?v=GtQdIYUtAHg" target="_blank">YouTube video #1</a><br />
-					<a href="https://www.youtube.com/watch?v=qlrs2Vorw2Y" target="_blank">YouTube video #2</a><br />
-					<a href="https://www.youtube.com/watch?v=tCRPUv8V22o" target="_blank">YouTube video #3</a><br />
-					<br />
-					This website is a live editing bytebeats player. It has a collection of bytebeat music I found on the internet, and also the music I created.<br />
-					You can choose between bytebeat, signed bytebeat and floatbeat formats. Bytebeat expects output is an unsigned 8bit value (0 to 255). Signed bytebeat assumes output is a signed 8bit value (-127 to 128). Floatbeat assumes output is -1.0 to 1.0.<br />
-					<br />
-					This website is the fork of <a href="http://dollchan.net/bytebeat" target="_blank">Bytebeat composer</a> by <a href="http://Github.com/SthephanShinkufag" target="_blank">StephanShi.</a>.<br />
+					Since these directly output a waveform, they have great performance in compiled languages and can often be ran on even the weakest embedded devices.<br>
+					<a href="http://canonical.org/~kragen/bytebeat/" target="_blank">History of bytebeat</a><br>
+					<br>
+					Original blog posts and videos from Viznut:<br>
+					<a href="http://countercomplex.blogspot.com/2011/10/algorithmic-symphonies-from-one-line-of.html" target="_blank">Blog posts #1</a><br>
+					<a href="http://countercomplex.blogspot.com.au/search/label/algorithmic%20music" target="_blank">Blog posts #2</a><br>
+					<a href="https://www.youtube.com/watch?v=GtQdIYUtAHg" target="_blank">YouTube video #1</a><br>
+					<a href="https://www.youtube.com/watch?v=qlrs2Vorw2Y" target="_blank">YouTube video #2</a><br>
+					<a href="https://www.youtube.com/watch?v=tCRPUv8V22o" target="_blank">YouTube video #3</a><br>
+					<br>
+					This website is a live editing bytebeats player. It has a collection of bytebeat music I found on the internet, and also the music I created.<br>
+					You can choose between bytebeat, signed bytebeat and floatbeat formats. Bytebeat expects output is an unsigned 8bit value (0 to 255). Signed bytebeat assumes output is a signed 8bit value (-127 to 128). Floatbeat assumes output is -1.0 to 1.0.<br>
+					<br>
+					This website is the fork of <a href="http://t-8492.github.io/bbeat2/" target="_blank">Bytebeat composer</a> by <a href="http://github.com/T-8492" target="_blank">T-8492.</a>.<br>
+					Forked by GFLJS2100 aka GFLJS2100-user.
+					<br><br>
+					This website is the fork of <a href="http://chasyxx.github.io/EnBeat_NEW/" target="_blank">Bytebeat composer</a> by <a href="http://github.com/Chasyxx" target="_blank">Chasyxx.</a>.<br>
+					Forked by emelchenko aka T aka T-8492.
+					<br><br>
+					This website is the fork of <a href="http://dollchan.net/bytebeat" target="_blank">Bytebeat composer</a> by <a href="http://Github.com/SthephanShinkufag" target="_blank">StephanShi.</a>.<br>
 					Forked by Chase T aka Chasyxx.
-					<br /><br />
-					ShephShi's website is the fork of <a href="http://entropedia.co.uk/generative_music/" target="_blank">8-bit Generative Composer</a> by <a href="http://twitter.com/paul_hayes/" target="_blank">@paul_hayes</a>.<br />
+					<br><br>
+					ShephShi's website is the fork of <a href="http://entropedia.co.uk/generative_music/" target="_blank">8-bit Generative Composer</a> by <a href="http://twitter.com/paul_hayes/" target="_blank">@paul_hayes</a>.<br>
 					Forked by SthephanShi aka Viraya.
-					<br /><br />
+					<br><br>
 					Custom functions include: <ul>
 						<li>bitC: <b>(X,Y,Z)</b> => <i>X</i>&amp;<i>Y</i>?<i>Z</i>:0</li>
 						<li>br: <b>(T,SIZE)</b> => Bit reverses <i>SIZE</i> bits of <i>T</i>, discards the other bits</li>
-						<li><b><i>sinf, cosf, tanf</i>: (X)</b> => <i>sin, cos, tan</i> but inputting t will output the same freqency as t by itself. AKA the function loops around every 256 "steps" instead of every 2pi steps</li>
+						<li><b><i>sinf, cosf, tanf</i>: (X)</b> => <i>sin, cos, tan</i> but inputting t will output the same freqency as t by itself.</li>
 						<li>regG: <b>(T,regEx)</b> => takes a string of <i>T</i>'s bits, and tests against <i>regEx</i> for a match. Outputs a boolean.</li>
 					</ul>
-					<warning>Note: Using any of these functions makes your code exotic, entailing that it will not be added to the dollChan library.<br />
-					They are just a novelty, and use them at your own risk.</warning>
 				</article>
+			</details>
+			<details class="library-content">
+				<summary class="library-header">
+					<h1>Publiched &mdash; random codes from various sources</h1>
+					<svg class="loading-wait hidden"><use xlink:href="#symbol-wait"/></svg>
+				</summary>
+				<div id="library-publiched" class="library-container"></div>
 			</details>
 			<details class="library-content">
 				<summary class="library-header" id="favorites-button">
@@ -239,19 +290,40 @@ c=&quot;Fork of StephanShi&apos;s player&quot;	,cc=c.charCodeAt(((t&amp;t&gt;&gt
 			</details>
 			<details class="library-content">
 				<summary class="library-header">
+					<h1>Funcbeat &mdash; statement based<h1>
+					<svg class="loading-wait hidden"><use xlink:href="#symbol-wait"></svg>
+				</summary>
+				<div id="library-funcbeat" class="library-container"></div>
+			</details>
+			<details class="library-content">
+				<summary class="library-header">
 					<h1>SthephanShi &mdash; code SthephanShi created</h1>
 					<svg class="loading-wait hidden"><use xlink:href="#symbol-wait"/></svg>
 				</summary>
 				<div id="sthephanshi" class="library-container"></div>
 			</details>
-			<!-- <details class="library-content">
+			<details class="library-content">
 				<summary class="library-header">
 					<h1>Chasyxx &mdash; code Chasyxx created<h1>
 					<svg class="loading-wait hidden"><use xlink:href="#symbol-wait"/></svg>
 				</summary>
 				<div id="library-chasyxx" class="library-container"></div>
-			</details> -->
-			<!-- <details class="library-content hidden optionalEntry">
+			</details>
+			<details class="library-content">
+				<summary class="library-header">
+					<h1>Emelchenko &mdash; code Emelchenko created<h1>
+					<svg class="loading-wait hidden"><use xlink:href="#symbol-wait"/></svg>
+				</summary>
+				<div id="library-code-emelchenko-created" class="library-container"></div>
+			</details>
+			<details class="library-content">
+				<summary class="library-header">
+					<h1>GFLJS2100 &mdash; code GFLJS2100 created<h1>
+					<svg class="loading-wait hidden"><use xlink:href="#symbol-wait"/></svg>
+				</summary>
+				<div id="library-code-gfljs2100-created" class="library-container"></div>
+			</details>
+			<details class="library-content hidden optionalEntry">
 				<summary class="library-header">
 					<h1>Pouet &mdash; Pouet threads</h1>
 				</summary>
@@ -263,15 +335,25 @@ c=&quot;Fork of StephanShi&apos;s player&quot;	,cc=c.charCodeAt(((t&amp;t&gt;&gt
 			</details>
 			<details class="library-content hidden optionalEntry">
 				<summary class="library-header">
-					<h1>Tools &mdash; Tools that are better off left out of the options menus</h1>
+					<h1>Tools &mdash; ChyxTools</h1>
 				</summary>
 				<article id="info" class="library-container entry-top">
 					<iframe src="https://chasyxx.github.io/ChyxTools/" style="width: 100%" height="256"></iframe>
 				</article>
-			</details> -->
+			</details>
+			<details class="library-content hidden optionalEntry">
+				<summary class="library-header">
+					<h1>Bemmu's composer &mdash; Is it C compatible or compact JS?</h1>
+				</summary>
+				<article id="info" class="library-container entry-top">
+					<iframe src="https://www.bemmu.com/music/index.html" style="width: 100%" height="256"></iframe>
+				</article>
+			</details>
 			<footer>
-				<a class="link" href="https://dollchan.net/btb" title="Dollchan discussion threads" target="_blank">&gt;&gt; Dollchan Discussion threads</a><br />
-				<a class="link" href="https://github.com/Chasyxx/EnBeat_NEW" title="Github repository" target="_blank">&gt;&gt; Github</a>
+				<a class="link" href="https://dollchan.net/btb" title="Dollchan discussion threads" target="_blank">&gt;&gt; Dollchan Discussion threads</a><br>
+				<a class="link" href="https://github.com/gfljs2100-user/gfljbeat2" title="Github repository" target="_blank">&gt;&gt; Github</a>
+				<br>
+				<script type="text/javascript">var year = new Date();document.write(year.getFullYear());</script> GiraffeFamilyLifeJungleSimOmegaFrogFile2100
 			</footer>
 		</section>
 	</main>
