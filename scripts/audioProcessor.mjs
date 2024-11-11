@@ -248,19 +248,19 @@ class audioProcessor extends AudioWorkletProcessor {
 					break;
 				case 'sinmode':
 					this.getValues = (funcValue) => ((Math.sin(funcValue) * 127)) / 127.5 - 1;
-					this.getValuesVisualizer = (funcValue) => (((Math.sin(funcValue) * 128) & 255) + 127);
+					this.getValuesVisualizer = (funcValue) => (((Math.sin(funcValue) * 127) & 255) + 127);
 					break;
 				case 'tanmode':
 					this.getValues = (funcValue) => ((Math.tan(funcValue) * 64)) / 127.5 - 1;
-					this.getValuesVisualizer = (funcValue) => (((Math.tan(funcValue) * 128) & 255) + 127);
+					this.getValuesVisualizer = (funcValue) => (((Math.tan(funcValue) * 127) & 255) + 127);
 					break;
 				case 'tanmodenew':
 					this.getValues = (funcValue) => ((Math.tan(funcValue) * 64)) / 127.5 - 1;
-					this.getValuesVisualizer = (funcValue) => (((Math.tan(funcValue) * 128) & 255) + 127);
+					this.getValuesVisualizer = (funcValue) => (((Math.tan(funcValue) * 127) & 255) + 127);
 					break;
 				case 'cosmode':
 					this.getValues = (funcValue) => ((Math.cos(funcValue) * 127)) / 127.5 - 1;
-					this.getValuesVisualizer = (funcValue) => (((Math.cos(funcValue) * 128) & 255) + 127);
+					this.getValuesVisualizer = (funcValue) => (((Math.cos(funcValue) * 127) & 255) + 127);
 					break;
 				case 'absmode':
 					this.getValues = (funcValue) => ((Math.abs(funcValue)) & 255) / 127.5 - 1;
@@ -271,24 +271,24 @@ class audioProcessor extends AudioWorkletProcessor {
 					this.getValuesVisualizer = (funcValue) => (((Math.cbrt(funcValue)) & 255));
 					break;
 				case 'sinhmode':
-					this.getValues = (funcValue) => ((Math.sinh(funcValue) * 32) & 255) / 127.5 - 1;
-					this.getValuesVisualizer = (funcValue) => (((Math.sinh(funcValue) * 128) & 255) + 127);
+					this.getValues = (funcValue) => ((Math.sinh(funcValue) * 127)) / 127.5 - 1;
+					this.getValuesVisualizer = (funcValue) => (((Math.sinh(funcValue) * 127) & 255) + 127);
 					break;
 				case 'asinmode':
-					this.getValues = (funcValue) => ((Math.asin(funcValue) * 32) & 255) / 127.5 - 1;
-					this.getValuesVisualizer = (funcValue) => (((Math.asin(funcValue) * 128) & 255) + 127);
+					this.getValues = (funcValue) => ((Math.asin(funcValue) * 127)) / 127.5 - 1;
+					this.getValuesVisualizer = (funcValue) => (((Math.asin(funcValue) * 127) & 255) + 127);
 					break;
 				case 'coshmode':
-					this.getValues = (funcValue) => ((Math.cosh(funcValue) * 32) & 255) / 127.5 - 1;
-					this.getValuesVisualizer = (funcValue) => (((Math.cosh(funcValue) * 128) & 255) + 127);
+					this.getValues = (funcValue) => ((Math.cosh(funcValue) * 127)) / 127.5 - 1;
+					this.getValuesVisualizer = (funcValue) => (((Math.cosh(funcValue) * 127) & 255) + 127);
 					break;
 				case 'tanhmode':
 					this.getValues = (funcValue) => ((Math.tanh(funcValue) * 32) & 255) / 127.5 - 1;
 					this.getValuesVisualizer = (funcValue) => (((Math.tanh(funcValue) * 128) & 255) + 127);
 					break;
 				case 'tanhmodenew':
-					this.getValues = (funcValue) => ((Math.tanh(funcValue) * 32)) / 127.5 - 1;
-					this.getValuesVisualizer = (funcValue) => (((Math.tanh(funcValue) * 128) & 255) + 127);
+					this.getValues = (funcValue) => ((Math.tanh(funcValue) * 127)) / 127.5 - 1;
+					this.getValuesVisualizer = (funcValue) => (((Math.tanh(funcValue) * 127) & 255) + 127);
 					break;
 				case 'acosmode':
 					this.getValues = (funcValue) => ((Math.acos(funcValue) * 32) & 255) / 127.5 - 1;
@@ -299,8 +299,8 @@ class audioProcessor extends AudioWorkletProcessor {
 					this.getValuesVisualizer = (funcValue) => (((Math.atan(funcValue) * 128) & 255) + 127);
 					break;
 				case 'atanmodenew':
-					this.getValues = (funcValue) => ((Math.atan(funcValue) * 32)) / 127.5 - 1;
-					this.getValuesVisualizer = (funcValue) => (((Math.atan(funcValue) * 128) & 255) + 127);
+					this.getValues = (funcValue) => ((Math.atan(funcValue) * 127)) / 127.5 - 1;
+					this.getValuesVisualizer = (funcValue) => (((Math.atan(funcValue) * 127) & 255) + 127);
 					break;
 				case 'log10mode':
 					this.getValues = (funcValue) => ((Math.log10(funcValue) * 32) & 255) / 127.5 - 1;
