@@ -268,7 +268,7 @@ class audioProcessor extends AudioWorkletProcessor {
 					break;
 				case 'cbrtmode':
 					this.getValues = (funcValue) => ((Math.cbrt(funcValue)) & 255) / 127.5 - 1;
-					this.getValuesVisualizer = (funcValue) => (((Math.cbrt(funcValue)) & 255) + 127);
+					this.getValuesVisualizer = (funcValue) => (((Math.cbrt(funcValue)) & 255));
 					break;
 				case 'sinhmode':
 					this.getValues = (funcValue) => ((Math.sinh(funcValue) * 32) & 255) / 127.5 - 1;
@@ -307,8 +307,8 @@ class audioProcessor extends AudioWorkletProcessor {
 					this.getValuesVisualizer = (funcValue) => ((Math.log10(funcValue) * 32) & 255);
 					break;
 				case 'sqrtmode':
-					this.getValues = (funcValue) => ((Math.sqrt(funcValue) * 32) & 255) / 127.5 - 1;
-					this.getValuesVisualizer = (funcValue) => ((Math.sqrt(funcValue) * 32) & 255);
+					this.getValues = (funcValue) => ((Math.sqrt(funcValue)) & 255) / 127.5 - 1;
+					this.getValuesVisualizer = (funcValue) => ((Math.sqrt(funcValue)) & 255);
 					break;
 				case 'sinfmode':
 					this.getValues = (funcValue) => ((Math.sin(funcValue * Math.PI / 128) * 32)) / 127.5 - 1;
