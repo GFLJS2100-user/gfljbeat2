@@ -354,7 +354,7 @@ globalThis.bytebeat = new class {
 	}
 
 	getX(t) {
-		return t / (1 << this.settings.drawScale);
+		return t / (0.5 << this.settings.drawScale);
 	}
 	handleEvent(e) {
 		let elem = e.target;
