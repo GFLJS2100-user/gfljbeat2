@@ -390,8 +390,8 @@ globalThis.bytebeat = new class {
 					case 'control-play-forward': this.playbackToggle(true, true, 1); break;
 					case 'control-rec': this.toggleRecording(); break;
 					case 'control-reset': this.resetTime(); break;
-					case 'control-scaledown': this.setScale(-0.5, elem); break;
-					case 'control-scaleup': this.setScale(0.5); break;
+					case 'control-scaledown': this.setScale(-1, elem); break;
+					case 'control-scaleup': this.setScale(1); break;
 					case 'control-stop': this.playbackStop(); break;
 					case 'control-counter-units': this.toggleCounterUnits(); break;
 					default:
