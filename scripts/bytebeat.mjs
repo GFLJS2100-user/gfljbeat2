@@ -75,7 +75,7 @@ globalThis.bytebeat = new class {
 		return saveData;
 	}
 	get timeCursorEnabled() {
-		return this.songData.sampleRate >> this.settings.drawScale < 1000;
+		return this.songData.sampleRate >> this.settings.drawScale < 40;
 	}
 	animationFrame() {
 		this.drawGraphics(this.byteSample);
