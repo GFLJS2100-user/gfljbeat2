@@ -632,7 +632,7 @@ globalThis.bytebeat = new class {
 		let response;
 		this.beginLoad();
 		try {
-			response = await fetch(`https://dollchan.net/bytebeat/library/${containerElem.id.replace('library-', '')}.json`,
+			response = await fetch(`https://dollchan.net/bytebeat/library/${containerElem.id.replace('', '')}.json`,
 				{ cache: 'no-cache' });
 		} catch (error) {
 			if (error instanceof TypeError) {
