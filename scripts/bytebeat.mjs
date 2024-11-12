@@ -775,7 +775,7 @@ globalThis.bytebeat = new class {
 		}
 		if (Array.isArray(drawBuffer)) {
 			this.drawBuffer = this.drawBuffer.concat(drawBuffer);
-			const limit = this.canvasWidth * (0.5 << this.settings.drawScale) - 1;
+			const limit = this.canvasWidth * (1 << this.settings.drawScale) - 1;
 			if (this.drawBuffer.length > limit) {
 				this.drawBuffer = this.drawBuffer.slice(-limit);
 			}
