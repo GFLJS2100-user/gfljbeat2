@@ -111,7 +111,7 @@ globalThis.bytebeat = new class {
 		let drawWidth = Math.abs(endX - startX) + 1;
 		// Truncate large segments (for high playback speed or 512px canvas)
 		if (drawWidth > width) {
-			startTime = (this.getX(endTime) - width) * (1 << scale);
+			startTime = (this.getX(endTime) - width) * (0.5 << scale);
 			startX = this.mod(this.getX(startTime), width);
 			endX = Math.floor(startX + this.getX(endTime - startTime));
 			startX = Math.floor(startX);
