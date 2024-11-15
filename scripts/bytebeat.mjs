@@ -833,7 +833,7 @@ globalThis.bytebeat = new class {
 		this.setCounterValue(this.byteSample);
 	}
 	setCodeSize(value) {
-		this.controlCodeSize.textContent = `${value} (${String(window.location).length})`;
+		this.controlCodeSize.textContent = `${value}B (${String(window.location).length})B`;
 	}
 	setCounterValue(value) {
 		this.controlTime.value = this.settings.isSeconds ?
