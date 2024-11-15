@@ -237,6 +237,13 @@ globalThis.bytebeat = new class {
 	expandEditor() {
 		this.containerFixedElem.classList.toggle('container-expanded');
 	}
+	formatBytes(bytes) {
+		if(bytes < 1E4) {
+			return bytes + 'B';
+		}
+		const i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)), 10);
+		return (i ? (bytes / (1024 ** i)).toFixed(2) : bytes) + ['B', 'KB', 'MB', 'GB', 'TB'][i];
+	}
 	generateLibraryEntry({
 		author, children, codeMinified, codeOriginal, cover, date, description, file, fileFormatted,
 		fileMinified, fileOriginal, mode, name, remix, sampleRate, starred, stereo, url
