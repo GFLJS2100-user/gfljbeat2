@@ -1,11 +1,4 @@
 [
-  {
-				"description": "ok ok here i did it i turned it into pcm ur welcome :) kinito :3 by CrowMilk101 but no rickroll (used GDPlayer1035's pcm converter)",
-				"file": "GFLJS2100 - ok ok here i did it i turned it into pcm ur welcome :) kinito :3 but no rickroll.js",
-				"date": "2024-09-17",
-        "fileOriginal": true,
-        "sampleRate": 48000
-			},
 			{
 				"description": "Cool 3 channel music (Play in loghack2)",
 				"codeOriginal": "[((t&t>>12|t&t>>8)&t&t>>4),t&t>>9|t&t>>2,t&t>>1]",
