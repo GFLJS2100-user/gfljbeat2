@@ -48,5 +48,10 @@
      				"fileOriginal": true,
      				"sampleRate": 48000,
 				"mode": "Funcbeat"
+			},
+			{
+				"codeOriginal": "((((((((t%(t^t>>8)^t>>8)^t%(t^t>>6)%t^t>>7)+t%(t))/2^t%(t^t>>12^t>>8))%t^t>>10)%t)|t%(t^t>>9))|t%(t^t>>9))^t>>8",
+				"date": "2024-11-20",
+				"sampleRate": 22050
 			}
 ]
