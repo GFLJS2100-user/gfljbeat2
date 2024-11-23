@@ -53,5 +53,11 @@
 				"codeOriginal": "((((((((t%(t^t>>8)^t>>8)^t%(t^t>>6)%t^t>>7)+t%(t))/2^t%(t^t>>12^t>>8))%t^t>>10)%t)|t%(t^t>>9))|t%(t^t>>9))^t>>8",
 				"date": "2024-11-20",
 				"sampleRate": 22050
+			},
+			{
+				"description": "I made a song with t>> and t<<",
+				"codeOriginal": "t>>((t<<(t>>t/(t>>(t>>11)))/512^(40000/(t&16383))|t>>6)^t>>8|t<<61)/8",
+				"date": "2024-11-23",
+				"sampleRate": 44100
 			}
 ]
