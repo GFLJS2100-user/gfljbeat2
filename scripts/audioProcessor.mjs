@@ -62,14 +62,14 @@ class audioProcessor extends AudioWorkletProcessor {
 	handleVisualizerPixels(a) {
 		let b = Array.isArray(a) ? a.slice() : a;
 		if (Array.isArray(b)) {
-			if (b.length == 2) b = [b[1], b[0], b[1]];
-			if (b.length > 2) b = [b[0], b[1], b[2]];
-			else if (b.length == 1) b = [b[0], b[0], b[0]];
-			else if (b.length == 0) b = [NaN, NaN, NaN];
+			if (b.length == 2) b = [b[1], b[0], b[1], b[0]];
+			if (b.length > 2) b = [b[0], b[1], b[2], b[3]];
+			else if (b.length == 1) b = [b[0], b[0], b[0], b[0]];
+			else if (b.length == 0) b = [NaN, NaN, NaN, NaN];
 		} else {
-			b = [b, b, b];
+			b = [b, b, b, b];
 		}
-		for (let ch = 0; ch < 3; ch++) {
+		for (let ch = 0; ch < 4; ch++) {
 			try {
 				b[ch] = +b[ch];
 			} catch {
@@ -82,17 +82,17 @@ class audioProcessor extends AudioWorkletProcessor {
 	}
 	handleAudioSamples(a) {
 		let b = Array.isArray(a) ? a.slice() : a;
-		let triples = false;
+		let quadruples = false;
 		let c = [];
 		if (Array.isArray(b)) {
 			if (b.length == 2) b = [b[0], b[1]];
-			if (b.length > 2) { b = [b[0], b[1], b[2]]; triples = true; }
+			if (b.length > 2) { b = [b[0], b[1], b[2], b[3]]; quadruples = true; }
 			else if (b.length == 1) b = [b[0], b[0]];
 			else if (b.length == 0) b = [NaN, NaN];
 		} else {
 			b = [b, b];
 		}
-		for (let ch = 0; ch < (2 + +triples); ch++) {
+		for (let ch = 0; ch < (2 + +quadruples); ch++) {
 			try {
 				b[ch] = +b[ch];
 			} catch {
@@ -102,8 +102,8 @@ class audioProcessor extends AudioWorkletProcessor {
 				this.lastValues[ch] = b[ch] = this.getValues(b[ch], ch);
 			else b[ch] = this.lastValues[ch];
 		}
-		if (triples)
-			c = [b[0] * (2 / 3) + b[1] / 3, b[2] * (2 / 3) + b[1] / 3];
+		if (quadruples)
+			c = [b[0] * (2 / 4) + b[1] / 4, b[2] * (2 / 4) + b[1] / 4];
 		else c = [b[0], b[1]];
 		this.outValue = c;
 	}
