@@ -7,7 +7,7 @@ class audioProcessor extends AudioWorkletProcessor {
 		this.func = null;
 		this.getValues = (_s) => NaN;
 		this.getValuesVisualizer = (_s) => 0;
-		this.lastValues = [0,0,0,0];
+		this.lastValues = [0,0,0];
 		this.isPlaying = false;
 		this.playbackSpeed = 1;
 		this.divisorStorage = 0;
@@ -62,14 +62,14 @@ class audioProcessor extends AudioWorkletProcessor {
 	handleVisualizerPixels(a) {
 		let b = Array.isArray(a) ? a.slice() : a;
 		if (Array.isArray(b)) {
-			if (b.length == 2) b = [b[1], b[0], b[1], b[0]];
-			if (b.length > 2) b = [b[0], b[1], b[2], b[3]];
-			else if (b.length == 1) b = [b[0], b[0], b[0], b[0]];
-			else if (b.length == 0) b = [NaN, NaN, NaN, NaN];
+			if (b.length == 2) b = [b[1], b[0], b[1]];
+			if (b.length > 2) b = [b[0], b[1], b[2]];
+			else if (b.length == 1) b = [b[0], b[0], b[0]];
+			else if (b.length == 0) b = [NaN, NaN, NaN];
 		} else {
-			b = [b, b, b, b];
+			b = [b, b, b];
 		}
-		for (let ch = 0; ch < 4; ch++) {
+		for (let ch = 0; ch < 3; ch++) {
 			try {
 				b[ch] = +b[ch];
 			} catch {
@@ -82,17 +82,17 @@ class audioProcessor extends AudioWorkletProcessor {
 	}
 	handleAudioSamples(a) {
 		let b = Array.isArray(a) ? a.slice() : a;
-		let quadruples = false;
+		let triples = false;
 		let c = [];
 		if (Array.isArray(b)) {
 			if (b.length == 2) b = [b[0], b[1]];
-			if (b.length > 2) { b = [b[0], b[1], b[2], b[3]]; quadruples = true; }
+			if (b.length > 2) { b = [b[0], b[1], b[2]]; triples = true; }
 			else if (b.length == 1) b = [b[0], b[0]];
 			else if (b.length == 0) b = [NaN, NaN];
 		} else {
 			b = [b, b];
 		}
-		for (let ch = 0; ch < (2 + +quadruples); ch++) {
+		for (let ch = 0; ch < (2 + +triples); ch++) {
 			try {
 				b[ch] = +b[ch];
 			} catch {
@@ -102,8 +102,8 @@ class audioProcessor extends AudioWorkletProcessor {
 				this.lastValues[ch] = b[ch] = this.getValues(b[ch], ch);
 			else b[ch] = this.lastValues[ch];
 		}
-		if (quadruples)
-			c = [b[0] * (2 / 4) + b[1] / 4, b[2] * (2 / 4) + b[1] / 4];
+		if (triples)
+			c = [b[0] * (2 / 3) + b[1] / 3, b[2] * (2 / 3) + b[1] / 3];
 		else c = [b[0], b[1]];
 		this.outValue = c;
 	}
