@@ -7,7 +7,7 @@ class audioProcessor extends AudioWorkletProcessor {
 		this.func = null;
 		this.getValues = (_s) => NaN;
 		this.getValuesVisualizer = (_s) => 0;
-		this.lastValues = [0,0,0];
+		this.lastValues = [0,0,0,0];
 		this.isPlaying = false;
 		this.playbackSpeed = 1;
 		this.divisorStorage = 0;
