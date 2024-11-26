@@ -144,15 +144,15 @@ globalThis.bytebeat = new class {
 		const isDiagram = this.settings.drawMode === 'Diagram';
 		for (let i = 0; i < bufferLen; ++i) {
 			const curY = buffer[i].value;
-			const prevY = buffer[i - 1]?.value ?? [NaN, NaN, NaN, NaN];
-			const isNaNCurY = [isNaN(curY[0]), isNaN(curY[1]), isNaN(curY[2]), isNaN(curY[3])];
+			const prevY = buffer[i - 1]?.value ?? [NaN, NaN, NaN];
+			const isNaNCurY = [isNaN(curY[0]), isNaN(curY[1]), isNaN(curY[2])];
 			const curTime = buffer[i].t;
 			const nextTime = buffer[i + 1]?.t ?? endTime;
 			const curX = this.mod(Math.floor(this.getX(isReverse ? nextTime + 1 : curTime)) - startX, width);
 			const nextX = this.mod(Math.ceil(this.getX(isReverse ? curTime + 1 : nextTime)) - startX, width);
 			const diagramIteration = this.mod(curTime, (2 ** this.settings.drawScale))
 			// Error value - filling with red color
-			if ((isNaNCurY[0] || isNaNCurY[1] || isNaNCurY[2] || isNaNCurY[3]) && !isDiagram) {
+			if ((isNaNCurY[0] || isNaNCurY[1] || isNaNCurY[2]) && !isDiagram) {
 				for (let x = curX; x !== nextX; x = this.mod(x + 1, width)) {
 					for (let y = 0; y < height; ++y) {
 						const idx = (drawWidth * y + x) << 2;
@@ -162,7 +162,7 @@ globalThis.bytebeat = new class {
 					}
 				}
 			}
-			for (let ch = 0; ch < 4; ch++) {
+			for (let ch = 0; ch < 3; ch++) {
 				if (isNaNCurY[ch] && !isDiagram) {
 					continue;
 				}
@@ -195,7 +195,7 @@ globalThis.bytebeat = new class {
 			const x = isReverse ? 0 : drawWidth - 1;
 			for (let y = 0; y < height; ++y) {
 				const idx = (drawWidth * (255 - y) + x) << 2;
-				this.drawEndBuffer[y] = [data[idx], data[idx + 1], data[idx + 2], data[idx + 3]];
+				this.drawEndBuffer[y] = [data[idx], data[idx + 1], data[idx + 2]];
 			}
 		}
 		// Placing a segment on the canvas
