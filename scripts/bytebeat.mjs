@@ -696,9 +696,9 @@ globalThis.bytebeat = new class {
 			({ hash } = window.location);
 		}
 		let songData;
-		if (hash.startsWith('#v3b64') || hash.startsWith('#EnBeat2-')) {
+		if (hash.startsWith('#v3b64') || hash.startsWith('#GFLJBeat2-')) {
 			try {
-				const hashString = hash.startsWith('#EnBeat2-') ? atob(hash.slice(9)) : atob(hash.slice(6));
+				const hashString = hash.startsWith('#GFLJBeat2-') ? atob(hash.slice(11)) : atob(hash.slice(6));
 				const dataBuffer = new Uint8Array(hashString.length);
 				for (const i in hashString) {
 					if (Object.prototype.hasOwnProperty.call(hashString, i)) {
@@ -964,7 +964,7 @@ globalThis.bytebeat = new class {
 			songData.mode = this.songData.mode;
 		}
 		window.location.hash =
-			`#EnBeat2-${btoa(String.fromCharCode.apply(undefined,
+			`#GFLJBeat2-${btoa(String.fromCharCode.apply(undefined,
 				deflateRaw(JSON.stringify(songData))
 			)).replaceAll('=', '')}`;
 		this.setCodeSize(code.length);
