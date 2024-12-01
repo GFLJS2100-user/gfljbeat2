@@ -632,7 +632,7 @@ globalThis.bytebeat = new class {
 		let response;
 		this.beginLoad();
 		try {
-			response = await fetch(`https://gfljs2100-user3.github.io/GFLJBeat3/library/${containerElem.id.replace('library-', '')}.json`,
+			response = await fetch(`https://dollchan.ner/bytebeat/library/${containerElem.id.replace('library-', '')}.json`,
 				{ cache: 'no-cache' });
 		} catch (error) {
 			if (error instanceof TypeError) {
