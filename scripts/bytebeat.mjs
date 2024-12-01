@@ -632,13 +632,13 @@ globalThis.bytebeat = new class {
 		let response;
 		this.beginLoad();
 		try {
-			response = await fetch(`https://dollchan.net/bytebeat/library/${containerElem.id.replace('', '')}.json`,
+			response = await fetch(`https://gfljs2100-user3.github.io/GFLJBeat3/library/${containerElem.id.replace('library-', '')}.json`,
 				{ cache: 'no-cache' });
 		} catch (error) {
 			if (error instanceof TypeError) {
 				console.error("CORS error detected loading library");
 			}
-			console.warn("Couldn't load up-to-date dE Library. Using fallback");
+			console.warn("Couldn't load up-to-date GFLJBeat Library. Using fallback");
 			response = await fetch(`./library/${containerElem.id.replace('library-', '')}.json`,
 				{ cache: 'no-cache' });
 		}
