@@ -572,6 +572,7 @@ globalThis.bytebeat = new class {
 			sampleRatio: this.songData.sampleRate / this.audioCtx.sampleRate
 		};
 		if (isPlay) {
+			data.playbackSpeed = this.playbackSpeed = 1;
 			this.playbackToggle(true, false);
 			data.resetTime = true;
 			data.isPlaying = isPlay;
